@@ -11,12 +11,22 @@ describe('noWinStartBoard', () => {
 });
 
 describe('noWinPartlyFilledBoard', () => {
-    it('should return 0: start array so nobody has won', () => {
+    it('should return 0: partly filled, but noone wins', () => {
         const tictac = [[0, 0, 1],
                         [0, 1, 0],
                         [0, 2, 0]];
         const result = checkWin(tictac);
         expect(result).toEqual(0);
+    });
+});
+
+describe('noWinFilledBoard', () => {
+    it('should return -1: completely filled, noone wins', () => {
+        const tictac = [[1, 2, 1],
+                        [2, 1, 1],
+                        [2, 1, 2]];
+        const result = checkWin(tictac);
+        expect(result).toEqual(-1);
     });
 });
 
