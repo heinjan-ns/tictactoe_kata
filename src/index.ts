@@ -32,8 +32,17 @@ export function checkWin(tictac: number[][]):  number {
         return diag2[0];
     }
 
-    // no winner found
-    return 0
+    // if the board isn't full
+    for (let row of tictac) {
+        for (let value of row) {
+          if (value === 0) {
+            return 0; 
+          }
+        }
+    }
+
+    // the board is full, and it's a tie
+    return -1
 }
 
 function generateRandomNumber(): number {
