@@ -39,3 +39,23 @@ describe('firstColumnWins', () => {
         expect(result).toEqual(1);
     });
 });
+
+describe('diagonalWin', () => {
+    it('should return player 2 wins', () => {
+        const tictac = [[2, 0, 0],
+                        [1, 2, 1], 
+                        [1, 2, 2]];
+        const result = checkWin(tictac);
+        expect(result).toEqual(2);
+    });
+});
+
+describe('diagonalWin2', () => {
+    it('should return player 1 wins', () => {
+        const tictac = [[2, 0, 1],
+                        [1, 1, 2], 
+                        [1, 2, 2]];
+        const result = checkWin(tictac);
+        expect(result).toEqual(1);
+    });
+});
