@@ -60,3 +60,16 @@ describe('diagonalWin2', () => {
     });
 });
 
+describe('pickRandom', () => {
+    it('should return the tictactoe board with player 2 on the last spot', () => {
+        const tictacIn = [[2, 0, 1],
+                        [1, 1, 2], 
+                        [1, 2, 2]];
+        const tictacOut = [[2, 2, 1],
+                        [1, 1, 2], 
+                        [1, 2, 2]];
+        const result = pickRandomSpot(tictacIn, 2);
+        expect(result).toEqual(tictacOut);
+    });
+});
+
