@@ -22,7 +22,7 @@ export function checkWin(tictac: number[][]):  number {
 
     // check if there is a winner diagonally
     const diag1 = [tictac[0][0], tictac[1][1], tictac[2][2]];
-    const diag2 = [tictac[0][2], tictac[1][1], tictac[0][2]];
+    const diag2 = [tictac[0][2], tictac[1][1], tictac[2][0]];
 
     if ((diag1[0] != 0) && (diag1[0] == diag1[1]) && (diag1[0] == diag1[2])){
         return diag1[0];
@@ -37,7 +37,7 @@ export function checkWin(tictac: number[][]):  number {
 }
 
 function generateRandomNumber(): number {
-    // Genereert een willekeurig geheel getal tussen 0 en 2
+    // generate a random number 0, 1 or 2
     return Math.floor(Math.random() * 3);
   }
 
@@ -57,6 +57,30 @@ export function pickRandomSpot(tictac: number[][], player: number):  number[][] 
     return (tictac)
 }
 
-var board = [ [0,0,0], [0, 0, 0], [0, 0, 0]];
-board = pickRandomSpot(board, 1);
-//console.log(board);
+function showBoard(tictac: number[][]): void{
+    console.log(tictac[0]);
+    console.log(tictac[1]);
+    console.log(tictac[2]);
+}
+function play(): void {
+    var board = [ [0,0,0], [0, 0, 0], [0, 0, 0]];
+
+    for (var i = 0; i < 5; i++) {
+        board = pickRandomSpot(board, 1);
+        var win = checkWin(board);
+        if (win != 0) {
+            showBoard(board);
+            console.log('Player ', win, ' won the game!');
+            return;
+        }
+        board = pickRandomSpot(board, 2);
+        var win = checkWin(board)
+        if (win != 0) {
+            showBoard(board);
+            console.log('Player ', win, ' won the game!');
+            return;
+        }
+    }
+}
+
+// play();

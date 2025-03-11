@@ -1,10 +1,20 @@
 import { checkWin, pickRandomSpot } from '../src/index';
 
-describe('noWin', () => {
+describe('noWinStartBoard', () => {
     it('should return 0: start array so nobody has won', () => {
         const tictac = [[0, 0, 0],
                         [0, 0, 0],
                         [0, 0, 0]];
+        const result = checkWin(tictac);
+        expect(result).toEqual(0);
+    });
+});
+
+describe('noWinPartlyFilledBoard', () => {
+    it('should return 0: start array so nobody has won', () => {
+        const tictac = [[0, 0, 1],
+                        [0, 1, 0],
+                        [0, 2, 0]];
         const result = checkWin(tictac);
         expect(result).toEqual(0);
     });
