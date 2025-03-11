@@ -66,11 +66,21 @@ export function pickRandomSpot(tictac: number[][], player: number):  number[][] 
     return (tictac)
 }
 
-function showBoard(tictac: number[][]): void{
+function showBoard(tictac: number[][]): void {
     console.log(tictac[0]);
     console.log(tictac[1]);
     console.log(tictac[2]);
 }
+
+function showResult(tictac: number[][], result: number): void {
+    showBoard(tictac);
+    if (result == -1) {
+        console.log('It is a tie, nobody won.');
+    } else {
+        console.log('Player', result, 'won the game!');
+    }
+}
+
 function play(): void {
     var board = [ [0,0,0], [0, 0, 0], [0, 0, 0]];
 
@@ -78,18 +88,16 @@ function play(): void {
         board = pickRandomSpot(board, 1);
         var win = checkWin(board);
         if (win != 0) {
-            showBoard(board);
-            console.log('Player ', win, ' won the game!');
+            showResult(board, win);
             return;
         }
         board = pickRandomSpot(board, 2);
         var win = checkWin(board)
         if (win != 0) {
-            showBoard(board);
-            console.log('Player ', win, ' won the game!');
+            showResult(board, win);
             return;
         }
     }
 }
 
-// play();
+play();
