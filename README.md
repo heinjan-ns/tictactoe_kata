@@ -13,3 +13,12 @@ To install the typescript compiler and jest:
 
 To try to run a test, it seems it needs additional packages:
 `npm install -D ts-jest`
+
+To test the things:
+`npm test`
+
+To build the project:
+`npm run build`
+
+To start the things:
+`npm run start`

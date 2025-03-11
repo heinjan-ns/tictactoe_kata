@@ -36,13 +36,27 @@ export function checkWin(tictac: number[][]):  number {
     return 0
 }
 
+function generateRandomNumber(): number {
+    // Genereert een willekeurig geheel getal tussen 0 en 2
+    return Math.floor(Math.random() * 3);
+  }
+
 export function pickRandomSpot(tictac: number[][], player: number):  number[][] {
-    const tictacOut = [ [2, 2, 1],
-                        [1, 1, 2], 
-                        [1, 2, 2]];
-    return (tictacOut)
+    var spotPicked = false;
+    while(spotPicked == false) {
+        const i = generateRandomNumber();
+        const j = generateRandomNumber();
+        if (tictac[i][j] == 0) {
+            tictac[i][j] = player;
+            // console.log('picked spot:', i, j)
+            spotPicked = true
+        }
+    }
+    
+    // console.log('board out:', tictac);
+    return (tictac)
 }
 
 var board = [ [0,0,0], [0, 0, 0], [0, 0, 0]];
-
-console.log(board);
+board = pickRandomSpot(board, 1);
+//console.log(board);
