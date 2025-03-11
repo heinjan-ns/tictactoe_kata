@@ -19,3 +19,13 @@ describe('topRowWins', () => {
         expect(result).toEqual(1);
     });
   });
+
+  describe('bottomRowWins', () => {
+    it('should return player 2 wins', () => {
+        const tictac = [[0, 0, 0],
+                        [0, 1, 1], 
+                        [2, 2, 2]];
+        const result = checkWin(tictac);
+        expect(result).toEqual(2);
+    });
+  });
