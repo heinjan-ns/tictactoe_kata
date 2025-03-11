@@ -59,3 +59,4 @@ describe('diagonalWin2', () => {
         expect(result).toEqual(1);
     });
 });
+

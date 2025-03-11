@@ -6,6 +6,12 @@
   "scripts": {
     "test": "jest"
   },
+  "scripts": {
+    "build": "tsc"
+  },
+  "scripts": {
+    "start": "node dist/src/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heinjan-ns/tictactoe_kata.git"

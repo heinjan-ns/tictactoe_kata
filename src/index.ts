@@ -35,3 +35,6 @@ export function checkWin(tictac: number[][]):  number {
     // no winner found
     return 0
 }
+
+var board = [ [0,0,0], [0, 0, 0], [0, 0, 0]];
+
