@@ -1,3 +1,3 @@
-function checkWin(tictac: number[][]):  number {
+export function checkWin(tictac: number[][]):  number {
     return 0
 }
