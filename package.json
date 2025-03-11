@@ -4,12 +4,8 @@
   "description": "Tic tac toe kata project",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
-  },
-  "scripts": {
-    "build": "tsc"
-  },
-  "scripts": {
+    "test": "jest",
+    "build": "tsc",
     "start": "node dist/src/index.js"
   },
   "repository": {

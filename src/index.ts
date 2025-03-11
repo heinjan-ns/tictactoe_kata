@@ -38,3 +38,4 @@ export function checkWin(tictac: number[][]):  number {
 
 var board = [ [0,0,0], [0, 0, 0], [0, 0, 0]];
 
+console.log(board);
