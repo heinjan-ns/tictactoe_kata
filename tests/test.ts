@@ -8,7 +8,7 @@ describe('noWin', () => {
         const result = checkWin(tictac);
         expect(result).toEqual(0);
     });
-  });
+});
 
 describe('topRowWins', () => {
     it('should return player 1 wins', () => {
@@ -18,9 +18,9 @@ describe('topRowWins', () => {
         const result = checkWin(tictac);
         expect(result).toEqual(1);
     });
-  });
+});
 
-  describe('bottomRowWins', () => {
+describe('bottomRowWins', () => {
     it('should return player 2 wins', () => {
         const tictac = [[0, 0, 0],
                         [0, 1, 1], 
@@ -28,4 +28,14 @@ describe('topRowWins', () => {
         const result = checkWin(tictac);
         expect(result).toEqual(2);
     });
-  });
+});
+
+describe('firstColumnWins', () => {
+    it('should return player 1 wins', () => {
+        const tictac = [[1, 0, 0],
+                        [1, 0, 2], 
+                        [1, 2, 2]];
+        const result = checkWin(tictac);
+        expect(result).toEqual(1);
+    });
+});
