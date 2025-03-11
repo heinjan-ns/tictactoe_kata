@@ -36,6 +36,13 @@ export function checkWin(tictac: number[][]):  number {
     return 0
 }
 
+export function pickRandomSpot(tictac: number[][], player: number):  number[][] {
+    const tictacOut = [ [2, 2, 1],
+                        [1, 1, 2], 
+                        [1, 2, 2]];
+    return (tictacOut)
+}
+
 var board = [ [0,0,0], [0, 0, 0], [0, 0, 0]];
 
 console.log(board);

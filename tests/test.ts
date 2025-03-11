@@ -1,4 +1,4 @@
-import { checkWin } from '../src/index';
+import { checkWin, pickRandomSpot } from '../src/index';
 
 describe('noWin', () => {
     it('should return 0: start array so nobody has won', () => {
