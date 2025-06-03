@@ -3,12 +3,23 @@ import { TicTacToe } from '@/index';
 describe('Tictactoe should', () => {
   test('place a X on an empty board for player X', () => {
     // _ _ _
-    // X _ _
+    // x _ _
     // _ _ _
     const ticTacToe = new TicTacToe(['_', '_', '_', '_', '_', '_', '_', '_', '_']);
 
     ticTacToe.pickSpot(3, 'X'); // middle left spot
 
     expect(ticTacToe.getSpot(3)).toStrictEqual('X');
+  });
+
+  test('place a O on a populated board for player O', () => {
+    // X _ _
+    // X O _
+    // _ _ o
+    const ticTacToe = new TicTacToe(['X', '_', '_', 'X', 'O', '_', '_', '_', '_']);
+
+    ticTacToe.pickSpot(8, 'O'); // top left spot
+
+    expect(ticTacToe.getSpot(8)).toStrictEqual('O');
   });
 });
