@@ -104,3 +104,29 @@ export class TicTacToe {
     return output;
   }
 }
+
+// // copied from https://www.webdevtutor.net/blog/typescript-how-to-sleep
+// function sleep(ms: number): Promise<void> {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
+// // ugly gameplay
+// export function main() {
+//   const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
+
+//   ticTacToe.pickRandomSpot('O');
+//   if (ticTacToe.checkWin() != ' ') {
+//     ticTacToe.showScreen();
+//     console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
+//     return;
+//   }
+//   ticTacToe.showScreen();
+//   sleep(2000);
+
+//   ticTacToe.pickRandomSpot('X');
+//   if (ticTacToe.checkWin() != ' ') {
+//     ticTacToe.showScreen();
+//     console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
+//     return;
+//   }
+// }

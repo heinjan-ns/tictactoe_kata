@@ -16,7 +16,8 @@
 
 🚧 WIP
 
+- BOT mode; keep it until the mechanics work
+
 🅿️ PARKED
 
-- BOT mode; keep it until the mechanics work
 - What about not won: should I add checkWin() to other tests where there is no winner?

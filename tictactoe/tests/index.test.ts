@@ -75,4 +75,11 @@ describe('Tictactoe should', () => {
 
     expect(ticTacToe.showScreen()).toStrictEqual(result);
   });
+
+  // test('run main()', () => {
+  //   // X _ _
+  //   // X O _
+  //   // X _ O
+  //   main();
+  // });
 });
