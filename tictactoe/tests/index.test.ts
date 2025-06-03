@@ -39,7 +39,7 @@ describe('Tictactoe should', () => {
     // _ _ _
     // _ _ _
     const ticTacToe = new TicTacToe(['_', '_', '_', '_', '_', '_', '_', '_', '_']);
-    const result = ' | | \n-+-+-\n | | -+-+-\n | |';
+    const result = ' | | \n-+-+-\n | | \n-+-+-\n | |';
 
     expect(ticTacToe.showScreen()).toStrictEqual(result);
   });

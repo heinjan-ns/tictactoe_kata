@@ -15,7 +15,8 @@ export class TicTacToe {
     return this.Board[spot];
   }
   showScreen(): string {
-    const result = ' | | \n-+-+-\n | | -+-+-\n | |';
+    const result = ' | | \n-+-+-\n | | \n-+-+-\n | |';
+    console.log(result);
     return result;
   }
   checkWin(): string {
