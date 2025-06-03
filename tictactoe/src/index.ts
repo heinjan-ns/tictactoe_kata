@@ -29,26 +29,31 @@ export class TicTacToe {
     const brd = this.Board;
 
     // horizontal
-    if (brd[0] == brd[1] && brd[1] == brd[2] && brd[0] != ' ') {
+    if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
       return brd[0];
     }
-    if (brd[3] == brd[4] && brd[4] == brd[5] && brd[3] != ' ') {
+    if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != ' ') {
       return brd[3];
     }
-    if (brd[6] == brd[7] && brd[7] == brd[8] && brd[6] != ' ') {
+    if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != ' ') {
       return brd[6];
     }
 
     // vertical
-    if (brd[0] == brd[3] && brd[3] == brd[6] && brd[0] != ' ') {
+    if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
       return brd[0];
     }
-    if (brd[1] == brd[4] && brd[4] == brd[7] && brd[1] != ' ') {
+    if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != ' ') {
       return brd[1];
     }
-    if (brd[2] == brd[5] && brd[5] == brd[8] && brd[2] != ' ') {
+    if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != ' ') {
       return brd[2];
     }
     return ' ';
+  }
+
+  isSame(fields: [string, string, string]): boolean {
+    const output = fields[0] == fields[1] && fields[1] == fields[2];
+    return output;
   }
 }

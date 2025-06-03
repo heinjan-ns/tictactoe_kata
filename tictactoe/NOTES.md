@@ -6,10 +6,10 @@
 - check win
 - game board creation
 - show empty game board to screen
+- show populated board to screen
 
 ⚠️ TODO
 
-- show populated board to screen
 - diagonal win
 - game ends in a draw
 
@@ -18,4 +18,4 @@
 🅿️ PARKED
 
 - BOT mode; keep it until the mechanics work
-- typed X / O on the board
+- What about not won: should I add checkWin() to other tests where there is no winner?
