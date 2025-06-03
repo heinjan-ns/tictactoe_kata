@@ -14,4 +14,7 @@ export class TicTacToe {
   getSpot(spot: number): string {
     return this.Board[spot];
   }
+  checkWin(): string {
+    return 'X';
+  }
 }
