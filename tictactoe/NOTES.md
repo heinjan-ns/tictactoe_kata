@@ -4,14 +4,16 @@
 - Player O can place a O on a populated board
 - player X can place a X on a populated board
 - check win
+- game board creation
+- show empty game board to screen
 
 ⚠️ TODO
 
-- show game board to screen
+- show populated board to screen
+- diagonal win
+- game ends in a draw
 
 🚧 WIP
-
-- game board creation
 
 🅿️ PARKED
 

@@ -43,4 +43,14 @@ describe('Tictactoe should', () => {
 
     expect(ticTacToe.showScreen()).toStrictEqual(result);
   });
+
+  test('show a populated game board to the screen', () => {
+    // X _ _
+    // X O _
+    // X _ O
+    const ticTacToe = new TicTacToe(['X', '_', '_', 'X', 'O', '_', 'X', '_', 'O']);
+    const result = 'X| | \n-+-+-\nX|O| \n-+-+-\nX| |O';
+
+    expect(ticTacToe.showScreen()).toStrictEqual(result);
+  });
 });
