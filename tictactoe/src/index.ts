@@ -8,10 +8,10 @@ export class TicTacToe {
   }
 
   pickSpot(spot: number, player: string) {
+    this.Board[spot] = player;
     return;
-    throw new Error('Method not implemented.');
   }
   getSpot(spot: number): string {
-    return 'X';
+    return this.Board[spot];
   }
 }
