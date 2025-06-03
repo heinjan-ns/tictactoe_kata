@@ -10,10 +10,11 @@
 
 ⚠️ TODO
 
-- diagonal win
 - game ends in a draw
 
 🚧 WIP
+
+- diagonal win
 
 🅿️ PARKED
 

@@ -34,6 +34,17 @@ describe('Tictactoe should', () => {
     expect(ticTacToe.checkWin()).toStrictEqual('X');
   });
 
+  test('place the last X to a diagonal line with X-es, player X wins', () => {
+    // X _ _
+    // O X _
+    // O _ x
+    const ticTacToe = new TicTacToe(['X', ' ', ' ', 'O', 'X', 'O', ' ', ' ', ' ']);
+
+    ticTacToe.pickSpot(8, 'X'); // bottom right spot
+
+    expect(ticTacToe.checkWin()).toStrictEqual('X');
+  });
+
   test('show an empty game board to the screen', () => {
     // _ _ _
     // _ _ _
