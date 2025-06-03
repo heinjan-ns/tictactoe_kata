@@ -1,0 +1,28 @@
+{
+  "name": "tictactoe_kata",
+  "version": "1.0.0",
+  "description": "Tic tac toe kata project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "start": "node dist/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heinjan-ns/tictactoe_kata.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heinjan-ns/tictactoe_kata/issues"
+  },
+  "homepage": "https://github.com/heinjan-ns/tictactoe_kata#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "typescript": "^5.8.2"
+  }
+}
