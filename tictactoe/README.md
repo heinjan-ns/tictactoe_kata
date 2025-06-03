@@ -13,7 +13,7 @@
 Board Created.
 The game will start with player X
 
-2. layer X won with a vertical line
+2. Player X won with a vertical line
    Player X:
    X| |  
    -+-+-
@@ -55,6 +55,4 @@ THE GAME ENDS WITH A DRAW!
 
 # Customer’s desires:
 
-The system should run in BOT mode (random BOT moves for players X & O), printing on the
-screen all the player’s moves (with a 2-second timeout between each round) until someone wins
-or the game ends with a draw.
+The system should run in BOT mode (random BOT moves for players X & O), printing on the screen all the player’s moves (with a 2-second timeout between each round) until someone wins or the game ends with a draw.

@@ -1,11 +1,14 @@
 import { sum } from '@/index';
 
-describe('Sum should be', () => {
-  test('total of 3 when adding 1 and 2', () => {
-    const expectedOutput = 3;
+describe('Tictactoe should', () => {
+  test('place a X on an empty board for player X', () => {
+    // _ _ _
+    // _ _ _
+    // _ _ _
+    const ticTacToe = new ticTacToe(['_', '_', '_', '_', '_', '_', '_', '_', '_']);
 
-    let result = sum(1, 2);
+    let ticTacToe.pickSpot('X', 3); // middle left spot
 
-    expect(result).toBe(expectedOutput);
+    expect(ticTacToe.getSpot(3)).toStrictEqual('X');
   });
 });
