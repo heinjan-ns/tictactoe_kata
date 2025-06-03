@@ -29,8 +29,6 @@ export class TicTacToe {
   }
 
   checkWin(): string {
-    const brd = this.Board;
-
     const horizontalWin = this.checkHorizontalWin();
     const verticalWin = this.checkVerticalWin();
     const diagonalWin = this.checkDiagionalWin();
