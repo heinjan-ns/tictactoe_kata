@@ -28,19 +28,14 @@ export class TicTacToe {
   checkWin(): string {
     const brd = this.Board;
 
-    if (this.checkHorizontalWin() != ' ') {
-      return this.checkHorizontalWin();
+    const horizontalWin = this.checkHorizontalWin();
+    if (horizontalWin != ' ') {
+      return horizontalWin;
     }
 
-    // vertical
-    if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
-      return brd[0];
-    }
-    if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != ' ') {
-      return brd[1];
-    }
-    if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != ' ') {
-      return brd[2];
+    const verticalWin = this.checkVerticalWin();
+    if (verticalWin != ' ') {
+      return verticalWin;
     }
 
     // diagonal
@@ -51,6 +46,21 @@ export class TicTacToe {
       return brd[0];
     }
 
+    return ' ';
+  }
+  checkVerticalWin(): string {
+    // vertical
+    const brd = this.Board;
+
+    if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
+      return brd[0];
+    }
+    if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != ' ') {
+      return brd[1];
+    }
+    if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != ' ') {
+      return brd[2];
+    }
     return ' ';
   }
   checkHorizontalWin(): string {
