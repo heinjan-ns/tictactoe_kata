@@ -1,3 +1,9 @@
-export function sum(a: number, b: number): number {
-  return a + b;
+export class TicTacToe {
+  private Board: [string, string, string, string, string, string, string, string, string];
+
+  constructor(
+    TicTacToeBoard: [string, string, string, string, string, string, string, string, string]
+  ) {
+    this.Board = TicTacToeBoard;
+  }
 }
