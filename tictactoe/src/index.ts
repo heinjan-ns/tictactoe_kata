@@ -11,9 +11,11 @@ export class TicTacToe {
     this.Board[spot] = player;
     return;
   }
+
   getSpot(spot: number): string {
     return this.Board[spot];
   }
+
   showScreen(): string {
     //const result = ' | | \n-+-+-\n | | \n-+-+-\n | |';
     const div = '-+-+-\n';
@@ -25,33 +27,42 @@ export class TicTacToe {
     console.log(result);
     return result;
   }
+
   checkWin(): string {
     const brd = this.Board;
 
     const horizontalWin = this.checkHorizontalWin();
+    const verticalWin = this.checkVerticalWin();
+    const diagonalWin = this.checkDiagionalWin();
+
     if (horizontalWin != ' ') {
       return horizontalWin;
     }
 
-    const verticalWin = this.checkVerticalWin();
     if (verticalWin != ' ') {
       return verticalWin;
     }
 
-    // diagonal
+    if (diagonalWin != ' ') {
+      return diagonalWin;
+    }
+
+    return ' ';
+  }
+
+  checkDiagionalWin(): string {
+    const brd = this.Board;
     if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != ' ') {
       return brd[0];
     }
     if (this.isSame([brd[2], brd[4], brd[6]]) && brd[2] != ' ') {
       return brd[0];
     }
-
     return ' ';
   }
-  checkVerticalWin(): string {
-    // vertical
-    const brd = this.Board;
 
+  checkVerticalWin(): string {
+    const brd = this.Board;
     if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
       return brd[0];
     }
@@ -63,9 +74,9 @@ export class TicTacToe {
     }
     return ' ';
   }
+
   checkHorizontalWin(): string {
     const brd = this.Board;
-    // horizontal
     if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
       return brd[0];
     }
