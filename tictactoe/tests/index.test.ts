@@ -45,6 +45,17 @@ describe('Tictactoe should', () => {
     expect(ticTacToe.checkWin()).toStrictEqual('X');
   });
 
+  test('place X to the last empty spot, play is draw', () => {
+    // X X O
+    // O X X
+    // O O x
+    const ticTacToe = new TicTacToe(['X', 'X', 'O', 'O', 'X', 'X', 'O', 'O', ' ']);
+
+    ticTacToe.pickRandomSpot('X'); // player X
+
+    expect(ticTacToe.getSpot(8)).toStrictEqual('X');
+  });
+
   test('show an empty game board to the screen', () => {
     // _ _ _
     // _ _ _

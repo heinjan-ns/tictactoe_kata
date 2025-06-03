@@ -7,6 +7,7 @@
 - game board creation
 - show empty game board to screen
 - show populated board to screen
+- diagonal win
 
 ⚠️ TODO
 
@@ -14,7 +15,7 @@
 
 🚧 WIP
 
-- diagonal win
+- place random X on board with only 1 spot open, no winner
 
 🅿️ PARKED
 
