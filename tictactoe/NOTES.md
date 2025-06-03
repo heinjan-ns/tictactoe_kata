@@ -8,14 +8,13 @@
 - show empty game board to screen
 - show populated board to screen
 - diagonal win
+- place random X on board with only 1 spot open, no winner
 
 ⚠️ TODO
 
 - game ends in a draw
 
 🚧 WIP
-
-- place random X on board with only 1 spot open, no winner
 
 🅿️ PARKED
 

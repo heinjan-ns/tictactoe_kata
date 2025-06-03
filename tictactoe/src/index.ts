@@ -12,8 +12,16 @@ export class TicTacToe {
     return;
   }
 
-  pickRandomSpot(arg0: string) {
-    throw new Error('Method not implemented.');
+  pickRandomSpot(player: string) {
+    var spotPicked = false;
+    while (!spotPicked) {
+      const randomSpot = Math.floor(Math.random() * 9); // spot between 0 and 8
+      if (this.getSpot(randomSpot) == ' ') {
+        this.pickSpot(randomSpot, player);
+        spotPicked = true;
+      }
+    }
+    return;
   }
 
   getSpot(spot: number): string {
