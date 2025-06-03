@@ -50,6 +50,11 @@ export class TicTacToe {
       return brd[2];
     }
 
+    // diagonal
+    if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != ' ') {
+      return brd[0];
+    }
+
     return ' ';
   }
 
