@@ -14,6 +14,9 @@ export class TicTacToe {
   getSpot(spot: number): string {
     return this.Board[spot];
   }
+  showScreen(): string {
+    throw new Error('Method not implemented.');
+  }
   checkWin(): string {
     const brd = this.Board;
 

@@ -34,14 +34,13 @@ describe('Tictactoe should', () => {
     expect(ticTacToe.checkWin()).toStrictEqual('X');
   });
 
-  test('place the last O to a horizontal line with O-es, player O wins', () => {
-    // X _ X
-    // O O o
-    // X _ _
-    const ticTacToe = new TicTacToe(['X', '_', 'X', 'O', 'O', '_', 'X', '_', '_']);
+  test('show an empty game board to the screen', () => {
+    // _ _ _
+    // _ _ _
+    // _ _ _
+    const ticTacToe = new TicTacToe(['_', '_', '_', '_', '_', '_', '_', '_', '_']);
+    const result = ' | | \n-+-+-\n | | -+-+-\n | |';
 
-    ticTacToe.pickSpot(5, 'O'); // middle right spot
-
-    expect(ticTacToe.checkWin()).toStrictEqual('O');
+    expect(ticTacToe.showScreen()).toStrictEqual(result);
   });
 });
