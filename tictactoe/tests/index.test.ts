@@ -29,7 +29,7 @@ describe('Tictactoe should', () => {
     // x _ O
     const ticTacToe = new TicTacToe(['X', '_', '_', 'X', 'O', '_', '_', '_', 'O']);
 
-    ticTacToe.pickSpot(7, 'X'); // bottom left spot
+    ticTacToe.pickSpot(6, 'X'); // bottom left spot
 
     expect(ticTacToe.checkWin()).toStrictEqual('X');
   });
