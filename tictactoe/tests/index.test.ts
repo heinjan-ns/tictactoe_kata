@@ -22,4 +22,15 @@ describe('Tictactoe should', () => {
 
     expect(ticTacToe.getSpot(8)).toStrictEqual('O');
   });
+
+  test('place the last X to a vertical line with X-es, player X wins', () => {
+    // X _ _
+    // X O _
+    // x _ O
+    const ticTacToe = new TicTacToe(['X', '_', '_', 'X', 'O', '_', '_', '_', 'O']);
+
+    ticTacToe.pickSpot(7, 'X'); // bottom left spot
+
+    expect(ticTacToe.checkWin()).toStrictEqual('X');
+  });
 });

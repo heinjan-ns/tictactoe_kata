@@ -1,15 +1,16 @@
 ✅ DONE
 
 - player X can place a X somewhere on an empty board
+- Player O can place a O on a populated board
+- player X can place a X on a populated board
 
 ⚠️ TODO
 
 - game board creation
-- player X can place a X on a populated board
+- show game board to screen
+- check win
 
 🚧 WIP
-
-- Player O can place a O on a populated board
 
 🅿️ PARKED
 
