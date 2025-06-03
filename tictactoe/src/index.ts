@@ -54,6 +54,9 @@ export class TicTacToe {
     if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != ' ') {
       return brd[0];
     }
+    if (this.isSame([brd[2], brd[4], brd[6]]) && brd[2] != ' ') {
+      return brd[0];
+    }
 
     return ' ';
   }
