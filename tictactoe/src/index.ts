@@ -16,9 +16,16 @@ export class TicTacToe {
   }
   checkWin(): string {
     const brd = this.Board;
+    if (brd[0] == brd[1] && brd[1] == brd[2] && brd[0] != '_') {
+      return brd[4];
+    }
     if (brd[3] == brd[4] && brd[4] == brd[5] && brd[3] != '_') {
       return brd[4];
     }
+    if (brd[6] == brd[7] && brd[7] == brd[8] && brd[6] != '_') {
+      return brd[6];
+    }
+
     return 'X';
   }
 }
