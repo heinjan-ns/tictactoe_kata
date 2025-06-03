@@ -5,7 +5,7 @@ describe('Tictactoe should', () => {
     // _ _ _
     // x _ _
     // _ _ _
-    const ticTacToe = new TicTacToe(['_', '_', '_', '_', '_', '_', '_', '_', '_']);
+    const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
 
     ticTacToe.pickSpot(3, 'X'); // middle left spot
 
@@ -16,7 +16,7 @@ describe('Tictactoe should', () => {
     // X _ _
     // X O _
     // _ _ o
-    const ticTacToe = new TicTacToe(['X', '_', '_', 'X', 'O', '_', '_', '_', '_']);
+    const ticTacToe = new TicTacToe(['X', ' ', ' ', 'X', 'O', ' ', ' ', ' ', ' ']);
 
     ticTacToe.pickSpot(8, 'O'); // top left spot
 
@@ -27,7 +27,7 @@ describe('Tictactoe should', () => {
     // X _ _
     // X O _
     // x _ O
-    const ticTacToe = new TicTacToe(['X', '_', '_', 'X', 'O', '_', '_', '_', 'O']);
+    const ticTacToe = new TicTacToe(['X', ' ', ' ', 'X', 'O', ' ', ' ', ' ', 'O']);
 
     ticTacToe.pickSpot(6, 'X'); // bottom left spot
 
@@ -38,8 +38,8 @@ describe('Tictactoe should', () => {
     // _ _ _
     // _ _ _
     // _ _ _
-    const ticTacToe = new TicTacToe(['_', '_', '_', '_', '_', '_', '_', '_', '_']);
-    const result = ' | | \n-+-+-\n | | \n-+-+-\n | |';
+    const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
+    const result = ' | | \n-+-+-\n | | \n-+-+-\n | | ';
 
     expect(ticTacToe.showScreen()).toStrictEqual(result);
   });
@@ -48,7 +48,7 @@ describe('Tictactoe should', () => {
     // X _ _
     // X O _
     // X _ O
-    const ticTacToe = new TicTacToe(['X', '_', '_', 'X', 'O', '_', 'X', '_', 'O']);
+    const ticTacToe = new TicTacToe(['X', ' ', ' ', 'X', 'O', ' ', 'X', ' ', 'O']);
     const result = 'X| | \n-+-+-\nX|O| \n-+-+-\nX| |O';
 
     expect(ticTacToe.showScreen()).toStrictEqual(result);
