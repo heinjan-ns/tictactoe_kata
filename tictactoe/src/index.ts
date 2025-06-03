@@ -28,15 +28,8 @@ export class TicTacToe {
   checkWin(): string {
     const brd = this.Board;
 
-    // horizontal
-    if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
-      return brd[0];
-    }
-    if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != ' ') {
-      return brd[3];
-    }
-    if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != ' ') {
-      return brd[6];
+    if (this.checkHorizontalWin() != ' ') {
+      return this.checkHorizontalWin();
     }
 
     // vertical
@@ -58,6 +51,20 @@ export class TicTacToe {
       return brd[0];
     }
 
+    return ' ';
+  }
+  checkHorizontalWin(): string {
+    const brd = this.Board;
+    // horizontal
+    if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
+      return brd[0];
+    }
+    if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != ' ') {
+      return brd[3];
+    }
+    if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != ' ') {
+      return brd[6];
+    }
     return ' ';
   }
 
