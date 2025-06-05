@@ -15,9 +15,7 @@ export class TicTacToe {
   private Board: [string, string, string, string, string, string, string, string, string];
   private gameState: GameState;
 
-  constructor(
-    TicTacToeBoard: [string, string, string, string, string, string, string, string, string]
-  ) {
+  constructor() {
     this.Board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     this.gameState = GameState.IN_PROGRESS;
   }
@@ -122,7 +120,7 @@ function sleep(ms: number): Promise<void> {
 
 // ugly gameplay
 export function main() {
-  const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
+  const ticTacToe = new TicTacToe();
 
   // ticTacToe.pickRandomSpot('O');
   // if (ticTacToe.checkWin() != ' ') {

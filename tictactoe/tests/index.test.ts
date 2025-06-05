@@ -5,7 +5,7 @@ describe('Tictactoe should', () => {
     // _ _ _
     // x _ _
     // _ _ _
-    const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
+    const ticTacToe = new TicTacToe();
 
     ticTacToe.pickSpot(3, 'X'); // middle left spot
 
@@ -16,7 +16,7 @@ describe('Tictactoe should', () => {
     // X _ _
     // X O _
     // _ _ o
-    const ticTacToe = new TicTacToe(['X', ' ', ' ', 'X', 'O', ' ', ' ', ' ', ' ']);
+    const ticTacToe = new TicTacToe();
 
     ticTacToe.pickSpot(0, 'X');
     ticTacToe.pickSpot(4, 'O');
@@ -31,7 +31,7 @@ describe('Tictactoe should', () => {
     // X _ _
     // X O _
     // x _ O
-    const ticTacToe = new TicTacToe(['X', ' ', ' ', 'X', 'O', ' ', ' ', ' ', 'O']);
+    const ticTacToe = new TicTacToe();
     ticTacToe.pickSpot(0, 'X');
     ticTacToe.pickSpot(4, 'O');
     ticTacToe.pickSpot(3, 'X');
@@ -46,7 +46,7 @@ describe('Tictactoe should', () => {
     // X _ _
     // O X _
     // O _ x
-    const ticTacToe = new TicTacToe(['X', ' ', ' ', 'O', 'X', 'O', ' ', ' ', ' ']);
+    const ticTacToe = new TicTacToe();
 
     ticTacToe.pickSpot(0, 'X');
     ticTacToe.pickSpot(3, 'O');
@@ -62,7 +62,7 @@ describe('Tictactoe should', () => {
     // X X O
     // O X X
     // O O x
-    const ticTacToe = new TicTacToe(['X', 'X', 'O', 'O', 'X', 'X', 'O', 'O', ' ']);
+    const ticTacToe = new TicTacToe();
     ticTacToe.pickSpot(0, 'X');
     ticTacToe.pickSpot(2, 'O');
     ticTacToe.pickSpot(1, 'X');
@@ -81,7 +81,7 @@ describe('Tictactoe should', () => {
     // _ _ _
     // _ _ _
     // _ _ _
-    const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
+    const ticTacToe = new TicTacToe();
     const result = ' | | \n-+-+-\n | | \n-+-+-\n | | ';
 
     expect(ticTacToe.showScreen()).toStrictEqual(result);
@@ -91,7 +91,7 @@ describe('Tictactoe should', () => {
     // X _ _
     // X O _
     // X _ O
-    const ticTacToe = new TicTacToe(['X', ' ', ' ', 'X', 'O', ' ', 'X', ' ', 'O']);
+    const ticTacToe = new TicTacToe();
     const result = 'X| | \n-+-+-\nX|O| \n-+-+-\nX| |O';
     ticTacToe.pickSpot(0, 'X');
     ticTacToe.pickSpot(4, 'O');
