@@ -63,7 +63,7 @@ export class TicTacToe {
     return false;
   }
 
-  checkDiagionalWin(): string {
+  checkDiagionalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != ' ') {
       if (brd[0] == 'X') {
@@ -71,7 +71,6 @@ export class TicTacToe {
       } else {
         this.gameState = GameState.WIN_O;
       }
-      return brd[0];
     }
     if (this.isSame([brd[2], brd[4], brd[6]]) && brd[2] != ' ') {
       if (brd[0] == 'X') {
@@ -79,12 +78,10 @@ export class TicTacToe {
       } else {
         this.gameState = GameState.WIN_O;
       }
-      return brd[0];
     }
-    return ' ';
   }
 
-  checkVerticalWin(): string {
+  checkVerticalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
       if (brd[0] == 'X') {
@@ -92,7 +89,6 @@ export class TicTacToe {
       } else {
         this.gameState = GameState.WIN_O;
       }
-      return brd[0];
     }
     if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != ' ') {
       if (brd[1] == 'X') {
@@ -100,20 +96,17 @@ export class TicTacToe {
       } else {
         this.gameState = GameState.WIN_O;
       }
-      return brd[1];
     }
     if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != ' ') {
       if (brd[2] == 'X') {
         this.gameState = GameState.WIN_X;
       } else {
         this.gameState = GameState.WIN_O;
-        return brd[2];
       }
     }
-    return ' ';
   }
 
-  checkHorizontalWin(): string {
+  checkHorizontalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
       if (brd[0] == 'X') {
@@ -121,7 +114,6 @@ export class TicTacToe {
       } else {
         this.gameState = GameState.WIN_O;
       }
-      return brd[0];
     }
     if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != ' ') {
       if (brd[3] == 'X') {
@@ -129,7 +121,6 @@ export class TicTacToe {
       } else {
         this.gameState = GameState.WIN_O;
       }
-      return brd[0];
     }
     if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != ' ') {
       if (brd[6] == 'X') {
@@ -137,9 +128,7 @@ export class TicTacToe {
       } else {
         this.gameState = GameState.WIN_O;
       }
-      return brd[0];
     }
-    return ' ';
   }
 
   isSame(fields: [string, string, string]): boolean {
