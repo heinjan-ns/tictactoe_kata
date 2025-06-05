@@ -72,7 +72,7 @@ export class TicTacToe {
     return this.Board[spot];
   }
 
-  showScreen(): string {
+  getBoard(): string {
     //const result = ' | | \n-+-+-\n | | \n-+-+-\n | |';
     const div = '-+-+-\n';
     const brd = this.Board;
@@ -96,7 +96,7 @@ export class TicTacToe {
     }
   }
 
-  checkDiagionalWin(): void {
+  private checkDiagionalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != Field.EMPTY) {
       this.setWinner(brd[0]);
@@ -106,7 +106,7 @@ export class TicTacToe {
     }
   }
 
-  checkVerticalWin(): void {
+  private checkVerticalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != Field.EMPTY) {
       this.setWinner(brd[0]);
@@ -119,7 +119,7 @@ export class TicTacToe {
     }
   }
 
-  checkHorizontalWin(): void {
+  private checkHorizontalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != Field.EMPTY) {
       this.setWinner(brd[0]);
@@ -137,7 +137,7 @@ export class TicTacToe {
     this.winner = winner == Field.X ? Winner.X : Winner.O;
   }
 
-  isSame(fields: [string, string, string]): boolean {
+  private isSame(fields: [string, string, string]): boolean {
     const output = fields[0] == fields[1] && fields[1] == fields[2];
     return output;
   }
@@ -152,7 +152,7 @@ export function main() {
   const ticTacToe = new TicTacToe();
   while (ticTacToe.checkGameState() == GameState.IN_PROGRESS) {
     ticTacToe.pickRandomSpot();
-    console.log(ticTacToe.showScreen() + '\n');
+    console.log(ticTacToe.getBoard() + '\n');
   }
   if (ticTacToe.checkGameState() == GameState.DRAW) {
     console.log('The game ends with a draw!');

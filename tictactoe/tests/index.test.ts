@@ -87,7 +87,7 @@ describe('Tictactoe should', () => {
     const ticTacToe = new TicTacToe();
     const result = ' | | \n-+-+-\n | | \n-+-+-\n | | ';
 
-    expect(ticTacToe.showScreen()).toStrictEqual(result);
+    expect(ticTacToe.getBoard()).toStrictEqual(result);
   });
 
   test('show a populated game board to the screen', () => {
@@ -102,7 +102,7 @@ describe('Tictactoe should', () => {
     ticTacToe.pickSpot(8);
     ticTacToe.pickSpot(6);
 
-    expect(ticTacToe.showScreen()).toStrictEqual(result);
+    expect(ticTacToe.getBoard()).toStrictEqual(result);
   });
 
   // test('run main()', () => {
