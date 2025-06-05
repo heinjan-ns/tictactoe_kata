@@ -72,9 +72,10 @@ describe('Tictactoe should', () => {
     ticTacToe.pickSpot(5);
     ticTacToe.pickSpot(7);
 
-    ticTacToe.pickRandomSpot(Field.X); // player X
+    ticTacToe.pickRandomSpot(); // player X
 
     expect(ticTacToe.getSpot(8)).toStrictEqual(Field.X);
+    expect(ticTacToe.checkGameState()).toStrictEqual(GameState.TIE);
   });
 
   test('show an empty game board to the screen', () => {

@@ -1,8 +1,8 @@
 export enum GameState {
-  IN_PROGRESS,
-  WIN_X,
-  WIN_O,
-  TIE,
+  IN_PROGRESS = 'In progress',
+  WIN_X = 'Player X won',
+  WIN_O = 'Player O won',
+  TIE = 'TIE',
 }
 
 export enum Field {
@@ -42,17 +42,18 @@ export class TicTacToe {
     this.Board[spot] = this.currentplayer;
     this.currentplayer = this.currentplayer == Field.X ? Field.O : Field.X;
 
-    this.checkWin();
+    this.checkWinOrTie();
     return;
   }
 
-  pickRandomSpot(player: Field) {
+  pickRandomSpot() {
     var spotPicked = false;
     while (!spotPicked) {
       const randomSpot = Math.floor(Math.random() * 9); // spot between 0 and 8
       if (this.getSpot(randomSpot) == Field.EMPTY) {
         this.pickSpot(randomSpot);
         spotPicked = true;
+        console.log('randomspot: ' + randomSpot + this.getSpot(randomSpot));
       }
     }
     return;
@@ -73,15 +74,13 @@ export class TicTacToe {
     return result;
   }
 
-  checkWin(): boolean {
+  checkWinOrTie(): void {
     this.checkHorizontalWin();
     this.checkVerticalWin();
     this.checkDiagionalWin();
-    const gameWon = this.gameState == GameState.WIN_X || this.gameState == GameState.WIN_O;
-    if (gameWon) {
-      return true;
+    if (!this.Board.includes(Field.EMPTY)) {
+      this.gameState = GameState.TIE;
     }
-    return false;
   }
 
   checkDiagionalWin(): void {
