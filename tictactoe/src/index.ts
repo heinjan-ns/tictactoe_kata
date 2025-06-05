@@ -66,68 +66,36 @@ export class TicTacToe {
   checkDiagionalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != ' ') {
-      if (brd[0] == 'X') {
-        this.gameState = GameState.WIN_X;
-      } else {
-        this.gameState = GameState.WIN_O;
-      }
+      this.gameState = brd[0] == 'X' ? GameState.WIN_X : GameState.WIN_O;
     }
     if (this.isSame([brd[2], brd[4], brd[6]]) && brd[2] != ' ') {
-      if (brd[0] == 'X') {
-        this.gameState = GameState.WIN_X;
-      } else {
-        this.gameState = GameState.WIN_O;
-      }
+      this.gameState = brd[2] == 'X' ? GameState.WIN_X : GameState.WIN_O;
     }
   }
 
   checkVerticalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
-      if (brd[0] == 'X') {
-        this.gameState = GameState.WIN_X;
-      } else {
-        this.gameState = GameState.WIN_O;
-      }
+      this.gameState = brd[0] == 'X' ? GameState.WIN_X : GameState.WIN_O;
     }
     if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != ' ') {
-      if (brd[1] == 'X') {
-        this.gameState = GameState.WIN_X;
-      } else {
-        this.gameState = GameState.WIN_O;
-      }
+      this.gameState = brd[1] == 'X' ? GameState.WIN_X : GameState.WIN_O;
     }
     if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != ' ') {
-      if (brd[2] == 'X') {
-        this.gameState = GameState.WIN_X;
-      } else {
-        this.gameState = GameState.WIN_O;
-      }
+      this.gameState = brd[2] == 'X' ? GameState.WIN_X : GameState.WIN_O;
     }
   }
 
   checkHorizontalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
-      if (brd[0] == 'X') {
-        this.gameState = GameState.WIN_X;
-      } else {
-        this.gameState = GameState.WIN_O;
-      }
+      this.gameState = brd[0] == 'X' ? GameState.WIN_X : GameState.WIN_O;
     }
     if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != ' ') {
-      if (brd[3] == 'X') {
-        this.gameState = GameState.WIN_X;
-      } else {
-        this.gameState = GameState.WIN_O;
-      }
+      this.gameState = brd[3] == 'X' ? GameState.WIN_X : GameState.WIN_O;
     }
     if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != ' ') {
-      if (brd[6] == 'X') {
-        this.gameState = GameState.WIN_X;
-      } else {
-        this.gameState = GameState.WIN_O;
-      }
+      this.gameState = brd[6] == 'X' ? GameState.WIN_X : GameState.WIN_O;
     }
   }
 
