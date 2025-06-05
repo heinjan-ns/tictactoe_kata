@@ -1,8 +1,13 @@
 export enum GameState {
-  IN_PROGRESS = 'In progress',
-  WIN_X = 'Player X won',
-  WIN_O = 'Player O won',
-  TIE = 'TIE',
+  IN_PROGRESS = 'IN PROGRESS',
+  WIN = 'WIN',
+  DRAW = 'DRAW',
+}
+
+export enum Winner {
+  X = 'Player X',
+  O = 'Player O',
+  NONE = 'No winner',
 }
 
 export enum Field {
@@ -15,6 +20,7 @@ export class TicTacToe {
   private Board: Field[];
   private gameState: GameState;
   private currentplayer: Field;
+  private winner: Winner;
 
   constructor() {
     this.Board = [
@@ -32,12 +38,16 @@ export class TicTacToe {
       Field.EMPTY,
     ];
     this.gameState = GameState.IN_PROGRESS;
+    this.winner = Winner.NONE;
     this.currentplayer = Field.X; // player X always starts
   }
   checkGameState(): GameState {
     return this.gameState;
   }
 
+  checkWinner(): Winner {
+    return this.winner;
+  }
   pickSpot(spot: number) {
     this.Board[spot] = this.currentplayer;
     this.currentplayer = this.currentplayer == Field.X ? Field.O : Field.X;
@@ -53,7 +63,6 @@ export class TicTacToe {
       if (this.getSpot(randomSpot) == Field.EMPTY) {
         this.pickSpot(randomSpot);
         spotPicked = true;
-        console.log('randomspot: ' + randomSpot + this.getSpot(randomSpot));
       }
     }
     return;
@@ -78,8 +87,12 @@ export class TicTacToe {
     this.checkHorizontalWin();
     this.checkVerticalWin();
     this.checkDiagionalWin();
+    if (this.gameState == GameState.WIN) {
+      return;
+    }
+
     if (!this.Board.includes(Field.EMPTY)) {
-      this.gameState = GameState.TIE;
+      this.gameState = GameState.DRAW;
     }
   }
 
@@ -119,8 +132,9 @@ export class TicTacToe {
     }
   }
 
-  private setWinner(winner: string): void {
-    this.gameState = winner == Field.X ? GameState.WIN_X : GameState.WIN_O;
+  private setWinner(winner: Field): void {
+    this.gameState = GameState.WIN;
+    this.winner = winner == Field.X ? Winner.X : Winner.O;
   }
 
   isSame(fields: [string, string, string]): boolean {
@@ -134,26 +148,17 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// ugly gameplay
 export function main() {
   const ticTacToe = new TicTacToe();
-
-  //   ticTacToe.pickRandomSpot(Field.O);
-  //   if (ticTacToe.checkWin() != Field.EMPTY) {
-  //     ticTacToe.showScreen();
-  //     console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
-  //     return;
-  //   }
-  //   ticTacToe.showScreen();
-  //   //sleep(2000);
-
-  //   ticTacToe.pickRandomSpot(Field.X);
-  //   if (ticTacToe.checkWin() != Field.EMPTY) {
-  //     ticTacToe.showScreen();
-  //     console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
-  //     return;
-  //   }
-  //   ticTacToe.showScreen();
+  while (ticTacToe.checkGameState() == GameState.IN_PROGRESS) {
+    ticTacToe.pickRandomSpot();
+    console.log(ticTacToe.showScreen() + '\n');
+  }
+  if (ticTacToe.checkGameState() == GameState.DRAW) {
+    console.log('The game ends with a draw!');
+  } else {
+    console.log(ticTacToe.checkWinner() + ' WON!');
+  }
 }
 
 main();
