@@ -7,7 +7,7 @@ describe('Tictactoe should', () => {
     // _ _ _
     const ticTacToe = new TicTacToe();
 
-    ticTacToe.pickSpot(3, Field.X); // middle left spot
+    ticTacToe.pickSpot(3); // middle left spot
 
     expect(ticTacToe.getSpot(3)).toStrictEqual(Field.X);
   });
@@ -18,10 +18,10 @@ describe('Tictactoe should', () => {
     // _ _ o
     const ticTacToe = new TicTacToe();
 
-    ticTacToe.pickSpot(0, Field.X);
-    ticTacToe.pickSpot(4, Field.O);
-    ticTacToe.pickSpot(3, Field.X);
-    ticTacToe.pickSpot(8, Field.O); // top left spot
+    ticTacToe.pickSpot(0);
+    ticTacToe.pickSpot(4);
+    ticTacToe.pickSpot(3);
+    ticTacToe.pickSpot(8); // top left spot
 
     expect(ticTacToe.getSpot(8)).toStrictEqual(Field.O);
     expect(ticTacToe.checkGameState()).toStrictEqual(GameState.IN_PROGRESS);
@@ -32,12 +32,12 @@ describe('Tictactoe should', () => {
     // X O _
     // x _ O
     const ticTacToe = new TicTacToe();
-    ticTacToe.pickSpot(0, Field.X);
-    ticTacToe.pickSpot(4, Field.O);
-    ticTacToe.pickSpot(3, Field.X);
-    ticTacToe.pickSpot(8, Field.O);
+    ticTacToe.pickSpot(0);
+    ticTacToe.pickSpot(4);
+    ticTacToe.pickSpot(3);
+    ticTacToe.pickSpot(8);
 
-    ticTacToe.pickSpot(6, Field.X); // bottom left spot
+    ticTacToe.pickSpot(6); // bottom left spot
 
     expect(ticTacToe.checkGameState()).toStrictEqual(GameState.WIN_X);
   });
@@ -48,12 +48,12 @@ describe('Tictactoe should', () => {
     // O _ x
     const ticTacToe = new TicTacToe();
 
-    ticTacToe.pickSpot(0, Field.X);
-    ticTacToe.pickSpot(3, Field.O);
-    ticTacToe.pickSpot(4, Field.X);
-    ticTacToe.pickSpot(6, Field.O);
+    ticTacToe.pickSpot(0);
+    ticTacToe.pickSpot(3);
+    ticTacToe.pickSpot(4);
+    ticTacToe.pickSpot(6);
 
-    ticTacToe.pickSpot(8, Field.X); // bottom right spot
+    ticTacToe.pickSpot(8); // bottom right spot
 
     expect(ticTacToe.checkGameState()).toStrictEqual(GameState.WIN_X);
   });
@@ -63,14 +63,14 @@ describe('Tictactoe should', () => {
     // O X X
     // O O x
     const ticTacToe = new TicTacToe();
-    ticTacToe.pickSpot(0, Field.X);
-    ticTacToe.pickSpot(2, Field.O);
-    ticTacToe.pickSpot(1, Field.X);
-    ticTacToe.pickSpot(3, Field.O);
-    ticTacToe.pickSpot(4, Field.X);
-    ticTacToe.pickSpot(6, Field.O);
-    ticTacToe.pickSpot(5, Field.X);
-    ticTacToe.pickSpot(7, Field.O);
+    ticTacToe.pickSpot(0);
+    ticTacToe.pickSpot(2);
+    ticTacToe.pickSpot(1);
+    ticTacToe.pickSpot(3);
+    ticTacToe.pickSpot(4);
+    ticTacToe.pickSpot(6);
+    ticTacToe.pickSpot(5);
+    ticTacToe.pickSpot(7);
 
     ticTacToe.pickRandomSpot(Field.X); // player X
 
@@ -93,11 +93,11 @@ describe('Tictactoe should', () => {
     // X _ O
     const ticTacToe = new TicTacToe();
     const result = 'X| | \n-+-+-\nX|O| \n-+-+-\nX| |O';
-    ticTacToe.pickSpot(0, Field.X);
-    ticTacToe.pickSpot(4, Field.O);
-    ticTacToe.pickSpot(3, Field.X);
-    ticTacToe.pickSpot(8, Field.O);
-    ticTacToe.pickSpot(6, Field.X);
+    ticTacToe.pickSpot(0);
+    ticTacToe.pickSpot(4);
+    ticTacToe.pickSpot(3);
+    ticTacToe.pickSpot(8);
+    ticTacToe.pickSpot(6);
 
     expect(ticTacToe.showScreen()).toStrictEqual(result);
   });

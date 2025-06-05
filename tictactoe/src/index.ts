@@ -14,27 +14,34 @@ export enum Field {
 export class TicTacToe {
   private Board: Field[];
   private gameState: GameState;
+  private currentplayer: Field;
 
   constructor() {
     this.Board = [
+      // empty 3x3 board
       Field.EMPTY,
       Field.EMPTY,
       Field.EMPTY,
+
       Field.EMPTY,
       Field.EMPTY,
       Field.EMPTY,
+
       Field.EMPTY,
       Field.EMPTY,
       Field.EMPTY,
     ];
     this.gameState = GameState.IN_PROGRESS;
+    this.currentplayer = Field.X; // player X always starts
   }
   checkGameState(): GameState {
     return this.gameState;
   }
 
-  pickSpot(spot: number, player: Field) {
-    this.Board[spot] = player;
+  pickSpot(spot: number) {
+    this.Board[spot] = this.currentplayer;
+    this.currentplayer = this.currentplayer == Field.X ? Field.O : Field.X;
+
     this.checkWin();
     return;
   }
@@ -44,7 +51,7 @@ export class TicTacToe {
     while (!spotPicked) {
       const randomSpot = Math.floor(Math.random() * 9); // spot between 0 and 8
       if (this.getSpot(randomSpot) == Field.EMPTY) {
-        this.pickSpot(randomSpot, player);
+        this.pickSpot(randomSpot);
         spotPicked = true;
       }
     }
@@ -132,22 +139,22 @@ function sleep(ms: number): Promise<void> {
 export function main() {
   const ticTacToe = new TicTacToe();
 
-  // ticTacToe.pickRandomSpot(Field.O);
-  // if (ticTacToe.checkWin() != Field.EMPTY) {
+  //   ticTacToe.pickRandomSpot(Field.O);
+  //   if (ticTacToe.checkWin() != Field.EMPTY) {
+  //     ticTacToe.showScreen();
+  //     console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
+  //     return;
+  //   }
   //   ticTacToe.showScreen();
-  //   console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
-  //   return;
-  // }
-  // ticTacToe.showScreen();
-  // //sleep(2000);
+  //   //sleep(2000);
 
-  // ticTacToe.pickRandomSpot(Field.X);
-  // if (ticTacToe.checkWin() != Field.EMPTY) {
+  //   ticTacToe.pickRandomSpot(Field.X);
+  //   if (ticTacToe.checkWin() != Field.EMPTY) {
+  //     ticTacToe.showScreen();
+  //     console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
+  //     return;
+  //   }
   //   ticTacToe.showScreen();
-  //   console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
-  //   return;
-  // }
-  // ticTacToe.showScreen();
 }
 
 main();
