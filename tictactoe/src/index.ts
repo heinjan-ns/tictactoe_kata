@@ -21,6 +21,7 @@ export class TicTacToe {
 
   pickSpot(spot: number, player: string) {
     this.Board[spot] = player;
+    this.checkWin();
     return;
   }
 
@@ -48,28 +49,18 @@ export class TicTacToe {
     const middleRow = brd[3] + '|' + brd[4] + '|' + brd[5];
     const bottomRow = brd[6] + '|' + brd[7] + '|' + brd[8];
     const result = topRow + '\n' + div + middleRow + '\n' + div + bottomRow;
-    console.log(result);
     return result;
   }
 
-  checkWin(): string {
-    const horizontalWin = this.checkHorizontalWin();
-    const verticalWin = this.checkVerticalWin();
-    const diagonalWin = this.checkDiagionalWin();
-
-    if (horizontalWin != ' ') {
-      return horizontalWin;
+  checkWin(): boolean {
+    this.checkHorizontalWin();
+    this.checkVerticalWin();
+    this.checkDiagionalWin();
+    const gameWon = this.gameState == GameState.WIN_X || this.gameState == GameState.WIN_O;
+    if (gameWon) {
+      return true;
     }
-
-    if (verticalWin != ' ') {
-      return verticalWin;
-    }
-
-    if (diagonalWin != ' ') {
-      return diagonalWin;
-    }
-
-    return ' ';
+    return false;
   }
 
   checkDiagionalWin(): string {
@@ -166,22 +157,22 @@ function sleep(ms: number): Promise<void> {
 export function main() {
   const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
 
-  ticTacToe.pickRandomSpot('O');
-  if (ticTacToe.checkWin() != ' ') {
-    ticTacToe.showScreen();
-    console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
-    return;
-  }
-  ticTacToe.showScreen();
-  //sleep(2000);
+  // ticTacToe.pickRandomSpot('O');
+  // if (ticTacToe.checkWin() != ' ') {
+  //   ticTacToe.showScreen();
+  //   console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
+  //   return;
+  // }
+  // ticTacToe.showScreen();
+  // //sleep(2000);
 
-  ticTacToe.pickRandomSpot('X');
-  if (ticTacToe.checkWin() != ' ') {
-    ticTacToe.showScreen();
-    console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
-    return;
-  }
-  ticTacToe.showScreen();
+  // ticTacToe.pickRandomSpot('X');
+  // if (ticTacToe.checkWin() != ' ') {
+  //   ticTacToe.showScreen();
+  //   console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
+  //   return;
+  // }
+  // ticTacToe.showScreen();
 }
 
 main();

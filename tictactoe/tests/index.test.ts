@@ -32,7 +32,6 @@ describe('Tictactoe should', () => {
 
     ticTacToe.pickSpot(6, 'X'); // bottom left spot
 
-    expect(ticTacToe.checkWin()).toStrictEqual('X');
     expect(ticTacToe.checkGameState()).toStrictEqual(GameState.WIN_X);
   });
 
@@ -44,7 +43,6 @@ describe('Tictactoe should', () => {
 
     ticTacToe.pickSpot(8, 'X'); // bottom right spot
 
-    expect(ticTacToe.checkWin()).toStrictEqual('X');
     expect(ticTacToe.checkGameState()).toStrictEqual(GameState.WIN_X);
   });
 
