@@ -5,6 +5,12 @@ export enum GameState {
   TIE,
 }
 
+export enum Field {
+  X = 'X',
+  O = 'O',
+  EMPTY = ' ',
+}
+
 export class TicTacToe {
   private Board: [string, string, string, string, string, string, string, string, string];
   private gameState: GameState;
@@ -12,7 +18,7 @@ export class TicTacToe {
   constructor(
     TicTacToeBoard: [string, string, string, string, string, string, string, string, string]
   ) {
-    this.Board = TicTacToeBoard;
+    this.Board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     this.gameState = GameState.IN_PROGRESS;
   }
   checkGameState(): GameState {
@@ -98,9 +104,11 @@ export class TicTacToe {
       this.setWinner(brd[6]);
     }
   }
+
   private setWinner(winner: string): void {
     this.gameState = winner == 'X' ? GameState.WIN_X : GameState.WIN_O;
   }
+
   isSame(fields: [string, string, string]): boolean {
     const output = fields[0] == fields[1] && fields[1] == fields[2];
     return output;
