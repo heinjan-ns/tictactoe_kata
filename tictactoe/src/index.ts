@@ -12,28 +12,38 @@ export enum Field {
 }
 
 export class TicTacToe {
-  private Board: [string, string, string, string, string, string, string, string, string];
+  private Board: Field[];
   private gameState: GameState;
 
   constructor() {
-    this.Board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+    this.Board = [
+      Field.EMPTY,
+      Field.EMPTY,
+      Field.EMPTY,
+      Field.EMPTY,
+      Field.EMPTY,
+      Field.EMPTY,
+      Field.EMPTY,
+      Field.EMPTY,
+      Field.EMPTY,
+    ];
     this.gameState = GameState.IN_PROGRESS;
   }
   checkGameState(): GameState {
     return this.gameState;
   }
 
-  pickSpot(spot: number, player: string) {
+  pickSpot(spot: number, player: Field) {
     this.Board[spot] = player;
     this.checkWin();
     return;
   }
 
-  pickRandomSpot(player: string) {
+  pickRandomSpot(player: Field) {
     var spotPicked = false;
     while (!spotPicked) {
       const randomSpot = Math.floor(Math.random() * 9); // spot between 0 and 8
-      if (this.getSpot(randomSpot) == ' ') {
+      if (this.getSpot(randomSpot) == Field.EMPTY) {
         this.pickSpot(randomSpot, player);
         spotPicked = true;
       }
@@ -69,42 +79,42 @@ export class TicTacToe {
 
   checkDiagionalWin(): void {
     const brd = this.Board;
-    if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != ' ') {
+    if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != Field.EMPTY) {
       this.setWinner(brd[0]);
     }
-    if (this.isSame([brd[2], brd[4], brd[6]]) && brd[2] != ' ') {
+    if (this.isSame([brd[2], brd[4], brd[6]]) && brd[2] != Field.EMPTY) {
       this.setWinner(brd[2]);
     }
   }
 
   checkVerticalWin(): void {
     const brd = this.Board;
-    if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
+    if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != Field.EMPTY) {
       this.setWinner(brd[0]);
     }
-    if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != ' ') {
+    if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != Field.EMPTY) {
       this.setWinner(brd[1]);
     }
-    if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != ' ') {
+    if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != Field.EMPTY) {
       this.setWinner(brd[2]);
     }
   }
 
   checkHorizontalWin(): void {
     const brd = this.Board;
-    if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
+    if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != Field.EMPTY) {
       this.setWinner(brd[0]);
     }
-    if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != ' ') {
+    if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != Field.EMPTY) {
       this.setWinner(brd[3]);
     }
-    if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != ' ') {
+    if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != Field.EMPTY) {
       this.setWinner(brd[6]);
     }
   }
 
   private setWinner(winner: string): void {
-    this.gameState = winner == 'X' ? GameState.WIN_X : GameState.WIN_O;
+    this.gameState = winner == Field.X ? GameState.WIN_X : GameState.WIN_O;
   }
 
   isSame(fields: [string, string, string]): boolean {
@@ -122,8 +132,8 @@ function sleep(ms: number): Promise<void> {
 export function main() {
   const ticTacToe = new TicTacToe();
 
-  // ticTacToe.pickRandomSpot('O');
-  // if (ticTacToe.checkWin() != ' ') {
+  // ticTacToe.pickRandomSpot(Field.O);
+  // if (ticTacToe.checkWin() != Field.EMPTY) {
   //   ticTacToe.showScreen();
   //   console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
   //   return;
@@ -131,8 +141,8 @@ export function main() {
   // ticTacToe.showScreen();
   // //sleep(2000);
 
-  // ticTacToe.pickRandomSpot('X');
-  // if (ticTacToe.checkWin() != ' ') {
+  // ticTacToe.pickRandomSpot(Field.X);
+  // if (ticTacToe.checkWin() != Field.EMPTY) {
   //   ticTacToe.showScreen();
   //   console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
   //   return;
