@@ -1,4 +1,4 @@
-import { TicTacToe } from '@/index';
+import { TicTacToe, GameState } from '../src/index';
 
 describe('Tictactoe should', () => {
   test('place a X on an empty board for player X', () => {
@@ -21,6 +21,7 @@ describe('Tictactoe should', () => {
     ticTacToe.pickSpot(8, 'O'); // top left spot
 
     expect(ticTacToe.getSpot(8)).toStrictEqual('O');
+    expect(ticTacToe.checkGameState()).toStrictEqual(GameState.IN_PROGRESS);
   });
 
   test('place the last X to a vertical line with X-es, player X wins', () => {
@@ -32,6 +33,7 @@ describe('Tictactoe should', () => {
     ticTacToe.pickSpot(6, 'X'); // bottom left spot
 
     expect(ticTacToe.checkWin()).toStrictEqual('X');
+    expect(ticTacToe.checkGameState()).toStrictEqual(GameState.WIN_X);
   });
 
   test('place the last X to a diagonal line with X-es, player X wins', () => {
@@ -43,6 +45,7 @@ describe('Tictactoe should', () => {
     ticTacToe.pickSpot(8, 'X'); // bottom right spot
 
     expect(ticTacToe.checkWin()).toStrictEqual('X');
+    expect(ticTacToe.checkGameState()).toStrictEqual(GameState.WIN_X);
   });
 
   test('place X to the last empty spot, play is draw', () => {

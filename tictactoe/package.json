@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint . --ext .ts,.tsx --fix"
+    "compile": "tsc",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "game": "tsc && node dist/src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -26,5 +28,5 @@
     "prettier": "^3.5.3",
     "ts-jest": "^29.3.4"
   },
-  "type": "module"
+  "type": "commonjs"
 }

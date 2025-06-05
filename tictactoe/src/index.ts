@@ -1,10 +1,22 @@
+export enum GameState {
+  IN_PROGRESS,
+  WIN_X,
+  WIN_O,
+  TIE,
+}
+
 export class TicTacToe {
   private Board: [string, string, string, string, string, string, string, string, string];
+  private gameState: GameState;
 
   constructor(
     TicTacToeBoard: [string, string, string, string, string, string, string, string, string]
   ) {
     this.Board = TicTacToeBoard;
+    this.gameState = GameState.IN_PROGRESS;
+  }
+  checkGameState(): GameState {
+    return this.gameState;
   }
 
   pickSpot(spot: number, player: string) {
@@ -63,9 +75,19 @@ export class TicTacToe {
   checkDiagionalWin(): string {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != ' ') {
+      if (brd[0] == 'X') {
+        this.gameState = GameState.WIN_X;
+      } else {
+        this.gameState = GameState.WIN_O;
+      }
       return brd[0];
     }
     if (this.isSame([brd[2], brd[4], brd[6]]) && brd[2] != ' ') {
+      if (brd[0] == 'X') {
+        this.gameState = GameState.WIN_X;
+      } else {
+        this.gameState = GameState.WIN_O;
+      }
       return brd[0];
     }
     return ' ';
@@ -74,13 +96,28 @@ export class TicTacToe {
   checkVerticalWin(): string {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
+      if (brd[0] == 'X') {
+        this.gameState = GameState.WIN_X;
+      } else {
+        this.gameState = GameState.WIN_O;
+      }
       return brd[0];
     }
     if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != ' ') {
+      if (brd[1] == 'X') {
+        this.gameState = GameState.WIN_X;
+      } else {
+        this.gameState = GameState.WIN_O;
+      }
       return brd[1];
     }
     if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != ' ') {
-      return brd[2];
+      if (brd[2] == 'X') {
+        this.gameState = GameState.WIN_X;
+      } else {
+        this.gameState = GameState.WIN_O;
+        return brd[2];
+      }
     }
     return ' ';
   }
@@ -88,13 +125,28 @@ export class TicTacToe {
   checkHorizontalWin(): string {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
+      if (brd[0] == 'X') {
+        this.gameState = GameState.WIN_X;
+      } else {
+        this.gameState = GameState.WIN_O;
+      }
       return brd[0];
     }
     if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != ' ') {
-      return brd[3];
+      if (brd[3] == 'X') {
+        this.gameState = GameState.WIN_X;
+      } else {
+        this.gameState = GameState.WIN_O;
+      }
+      return brd[0];
     }
     if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != ' ') {
-      return brd[6];
+      if (brd[6] == 'X') {
+        this.gameState = GameState.WIN_X;
+      } else {
+        this.gameState = GameState.WIN_O;
+      }
+      return brd[0];
     }
     return ' ';
   }
@@ -105,28 +157,31 @@ export class TicTacToe {
   }
 }
 
-// // copied from https://www.webdevtutor.net/blog/typescript-how-to-sleep
-// function sleep(ms: number): Promise<void> {
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
+// copied from https://www.webdevtutor.net/blog/typescript-how-to-sleep
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
-// // ugly gameplay
-// export function main() {
-//   const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
+// ugly gameplay
+export function main() {
+  const ticTacToe = new TicTacToe([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']);
 
-//   ticTacToe.pickRandomSpot('O');
-//   if (ticTacToe.checkWin() != ' ') {
-//     ticTacToe.showScreen();
-//     console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
-//     return;
-//   }
-//   ticTacToe.showScreen();
-//   sleep(2000);
+  ticTacToe.pickRandomSpot('O');
+  if (ticTacToe.checkWin() != ' ') {
+    ticTacToe.showScreen();
+    console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
+    return;
+  }
+  ticTacToe.showScreen();
+  //sleep(2000);
 
-//   ticTacToe.pickRandomSpot('X');
-//   if (ticTacToe.checkWin() != ' ') {
-//     ticTacToe.showScreen();
-//     console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
-//     return;
-//   }
-// }
+  ticTacToe.pickRandomSpot('X');
+  if (ticTacToe.checkWin() != ' ') {
+    ticTacToe.showScreen();
+    console.log('PLAYER ' + ticTacToe.checkWin() + ' WON!');
+    return;
+  }
+  ticTacToe.showScreen();
+}
+
+main();
