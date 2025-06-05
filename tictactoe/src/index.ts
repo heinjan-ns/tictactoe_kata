@@ -66,39 +66,41 @@ export class TicTacToe {
   checkDiagionalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[4], brd[8]]) && brd[0] != ' ') {
-      this.gameState = brd[0] == 'X' ? GameState.WIN_X : GameState.WIN_O;
+      this.setWinner(brd[0]);
     }
     if (this.isSame([brd[2], brd[4], brd[6]]) && brd[2] != ' ') {
-      this.gameState = brd[2] == 'X' ? GameState.WIN_X : GameState.WIN_O;
+      this.setWinner(brd[2]);
     }
   }
 
   checkVerticalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[3], brd[6]]) && brd[0] != ' ') {
-      this.gameState = brd[0] == 'X' ? GameState.WIN_X : GameState.WIN_O;
+      this.setWinner(brd[0]);
     }
     if (this.isSame([brd[1], brd[4], brd[7]]) && brd[1] != ' ') {
-      this.gameState = brd[1] == 'X' ? GameState.WIN_X : GameState.WIN_O;
+      this.setWinner(brd[1]);
     }
     if (this.isSame([brd[2], brd[5], brd[8]]) && brd[2] != ' ') {
-      this.gameState = brd[2] == 'X' ? GameState.WIN_X : GameState.WIN_O;
+      this.setWinner(brd[2]);
     }
   }
 
   checkHorizontalWin(): void {
     const brd = this.Board;
     if (this.isSame([brd[0], brd[1], brd[2]]) && brd[0] != ' ') {
-      this.gameState = brd[0] == 'X' ? GameState.WIN_X : GameState.WIN_O;
+      this.setWinner(brd[0]);
     }
     if (this.isSame([brd[3], brd[4], brd[5]]) && brd[3] != ' ') {
-      this.gameState = brd[3] == 'X' ? GameState.WIN_X : GameState.WIN_O;
+      this.setWinner(brd[3]);
     }
     if (this.isSame([brd[6], brd[7], brd[8]]) && brd[6] != ' ') {
-      this.gameState = brd[6] == 'X' ? GameState.WIN_X : GameState.WIN_O;
+      this.setWinner(brd[6]);
     }
   }
-
+  private setWinner(winner: string): void {
+    this.gameState = winner == 'X' ? GameState.WIN_X : GameState.WIN_O;
+  }
   isSame(fields: [string, string, string]): boolean {
     const output = fields[0] == fields[1] && fields[1] == fields[2];
     return output;
